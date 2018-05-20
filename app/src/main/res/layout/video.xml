@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:layout_margin="10dp"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp">
 <com.example.maovideoplayer.mVideoView
     android:id="@+id/video"
     android:layout_width="match_parent"
-    android:layout_height="300dp" />
-    <Button
-        android:id="@+id/buttonPane"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+    android:layout_height="match_parent" />
 
-        android:text="开始"/>
-    <Button
+    <ImageView
         android:id="@+id/buttonPane2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="50dp"
-        android:text="暂停"/>
-    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="150dp"
+
+        android:src="@drawable/presume"/>
+    <ImageView
         android:id="@+id/buttonPane3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="100dp"
-        android:text="重来"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="300dp"
+        android:src="@drawable/resume"
         />
+
+    <ImageView
+        android:id="@+id/buttonPane"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/start"
+        android:layout_marginTop="500dp"/>
 </android.support.v7.widget.CardView>

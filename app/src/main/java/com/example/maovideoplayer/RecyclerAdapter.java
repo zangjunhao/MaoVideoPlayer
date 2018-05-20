@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -70,19 +71,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return VideoUrl.size();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         mVideoView videoView;
         CardView cardView;
-        Button button1;
-        Button button2;
-        Button button3;
+        ImageView button1;
+        ImageView button2;
+        ImageView button3;
         public ViewHolder(View itemView) {
             super(itemView);
             cardView=(CardView)itemView;
             videoView=(mVideoView) itemView.findViewById(R.id.video);
-            button1=(Button)itemView.findViewById(R.id.buttonPane);
-            button2=(Button)itemView.findViewById(R.id.buttonPane2);
-            button3=(Button)itemView.findViewById(R.id.buttonPane3);
+            button1=(ImageView) itemView.findViewById(R.id.buttonPane);
+            button2=(ImageView) itemView.findViewById(R.id.buttonPane2);
+            button3=(ImageView) itemView.findViewById(R.id.buttonPane3);
         }
     }
 }
