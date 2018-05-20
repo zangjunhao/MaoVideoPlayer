@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void init()
     {
+
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     {
         if(isNetworkConnected(context)){
             HttpConnect httpConnect=new HttpConnect("http://route.showapi.com/255-1?showapi_appid=38518&showapi_sign=f00376d530ae4e799eae6fc301811c5f&type=41&title=&page=&");
+
             httpConnect.sendRequestWithHttpURLConnection(new HttpConnect.Callback() {
                 @Override
                 public void finish(String respone) {
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 VideoUrl.add(jsonObject1.getString("video_uri"));
 
             }
-
+            Log.d("网址数量", "一共有 "+VideoUrl.size());
         } catch (JSONException e) {
             e.printStackTrace();
         }

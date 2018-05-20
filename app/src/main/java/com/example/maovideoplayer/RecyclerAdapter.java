@@ -4,10 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.net.URL;
@@ -34,24 +36,29 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
-    videoplayer=holder.videoView;
-    videoplayer.setVideoURI(Uri.parse(VideoUrl.get(position)));
-    holder.button1.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(final RecyclerAdapter.ViewHolder holder, final int position) {
+
+        holder.button1.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            videoplayer=holder.videoView;
+            videoplayer.setVideoURI(Uri.parse(VideoUrl.get(position)));
             videoplayer.start();
         }
     });
     holder.button2.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            videoplayer=holder.videoView;
+            videoplayer.setVideoURI(Uri.parse(VideoUrl.get(position)));
             videoplayer.pause();
         }
     });
     holder.button3.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            videoplayer=holder.videoView;
+            videoplayer.setVideoURI(Uri.parse(VideoUrl.get(position)));
             videoplayer.resume();
         }
     });
@@ -59,6 +66,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public int getItemCount() {
+        //Log.d("ItemCount", "数组的大小 "+VideoUrl.size());
         return VideoUrl.size();
     }
 
