@@ -5,7 +5,7 @@
     android:layout_margin="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp">
-<VideoView
+<com.example.maovideoplayer.mVideoView
     android:id="@+id/video"
     android:layout_width="match_parent"
     android:layout_height="300dp" />

@@ -22,7 +22,7 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private List<String> VideoUrl=null;
     private Context mcontext;
-    private VideoView videoplayer;
+    private mVideoView videoplayer;
     public RecyclerAdapter(List<String> videoUrl)
     {
         VideoUrl=videoUrl;
@@ -71,7 +71,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        VideoView videoView;
+        mVideoView videoView;
         CardView cardView;
         Button button1;
         Button button2;
@@ -79,7 +79,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
             cardView=(CardView)itemView;
-            videoView=(VideoView)itemView.findViewById(R.id.video);
+            videoView=(mVideoView) itemView.findViewById(R.id.video);
             button1=(Button)itemView.findViewById(R.id.buttonPane);
             button2=(Button)itemView.findViewById(R.id.buttonPane2);
             button3=(Button)itemView.findViewById(R.id.buttonPane3);
