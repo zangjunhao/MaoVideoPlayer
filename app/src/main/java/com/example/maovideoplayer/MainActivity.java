@@ -21,6 +21,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<String>VideoUrl=new ArrayList<>();
+    private List<String>Text=new ArrayList<>();
+    private List<String>zhan=new ArrayList<>();
+    private List<String>name=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
        CenterLayoutManager centerLayoutManager=new CenterLayoutManager(this);
         recyclerView.setLayoutManager(centerLayoutManager);
-        RecyclerAdapter recyclerAdapter=new RecyclerAdapter(VideoUrl);
+        RecyclerAdapter recyclerAdapter=new RecyclerAdapter(VideoUrl,Text,zhan,name);
         recyclerView.setAdapter(recyclerAdapter);
         PagerSnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
@@ -81,8 +84,10 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
+                Text.add(jsonObject1.getString("text"));
                 VideoUrl.add(jsonObject1.getString("video_uri"));
+                zhan.add(jsonObject1.getString("love"));
+                name.add(jsonObject1.getString("name"));
 
             }
             Log.d("网址数量", "一共有 "+VideoUrl.size());

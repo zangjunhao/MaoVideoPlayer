@@ -1,6 +1,7 @@
 package com.example.maovideoplayer;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -22,12 +24,18 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private List<String> VideoUrl=null;
+    private List<String> itemtext=null;
+    private List<String> zhan=null;
+    private List<String> name=null;
     private Context mcontext;
     private mVideoView videoplayer;
     private int ss=0;
-    public RecyclerAdapter(List<String> videoUrl)
+    public RecyclerAdapter(List<String> videoUrl,List<String>itemtext,List<String>zhan,List<String>name)
     {
         VideoUrl=videoUrl;
+        this.itemtext=itemtext;
+        this.zhan=zhan;
+        this.name=name;
     }
 
     @Override
@@ -39,10 +47,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(final RecyclerAdapter.ViewHolder holder, final int position) {
-
+        Log.d("此时的Text为", " "+itemtext.get(position));
         videoplayer=holder.videoView;
         videoplayer.setVideoURI(Uri.parse(VideoUrl.get(position)));
         videoplayer.start();
+        holder.textView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        holder.textView.setText(itemtext.get(position));
+        holder.zhan.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        holder.zhan.setText(zhan.get(position));
+        holder.name.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        holder.name.setText(name.get(position));
         holder.button1.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -88,6 +102,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         ImageView button1;
         ImageView button2;
         ImageView button3;
+        TextView textView;
+        TextView zhan;
+        TextView name;
         public ViewHolder(View itemView) {
             super(itemView);
             cardView=(CardView)itemView;
@@ -95,6 +112,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             button1=(ImageView) itemView.findViewById(R.id.buttonPane);
             button2=(ImageView) itemView.findViewById(R.id.buttonPane2);
             button3=(ImageView) itemView.findViewById(R.id.buttonPane3);
+            textView=(TextView)itemView.findViewById(R.id.itemtext);
+            zhan=(TextView)itemView.findViewById(R.id.zhan);
+            name=(TextView)itemView.findViewById(R.id.name);
         }
     }
 }
