@@ -11,8 +11,6 @@ import android.widget.VideoView;
  */
 
 public class mVideoView extends VideoView {
-    private int mwidth;
-    private int mheight;
     public mVideoView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
@@ -30,9 +28,7 @@ public class mVideoView extends VideoView {
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    int width=getDefaultSize(mwidth,widthMeasureSpec);
-    int height=getDefaultSize(mheight,heightMeasureSpec);
-    setMeasuredDimension(width,height);
+    setMeasuredDimension(widthMeasureSpec,heightMeasureSpec);
     }
 
 

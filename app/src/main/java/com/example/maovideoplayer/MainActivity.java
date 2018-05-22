@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
@@ -40,10 +41,12 @@ public class MainActivity extends AppCompatActivity {
     {
 
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+       CenterLayoutManager centerLayoutManager=new CenterLayoutManager(this);
+        recyclerView.setLayoutManager(centerLayoutManager);
         RecyclerAdapter recyclerAdapter=new RecyclerAdapter(VideoUrl);
         recyclerView.setAdapter(recyclerAdapter);
+        PagerSnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
     }
     private void getVideoUrl(Context context)
     {

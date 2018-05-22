@@ -24,6 +24,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private List<String> VideoUrl=null;
     private Context mcontext;
     private mVideoView videoplayer;
+    private int ss=0;
     public RecyclerAdapter(List<String> videoUrl)
     {
         VideoUrl=videoUrl;
@@ -39,6 +40,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(final RecyclerAdapter.ViewHolder holder, final int position) {
 
+        videoplayer=holder.videoView;
+        videoplayer.setVideoURI(Uri.parse(VideoUrl.get(position)));
+        videoplayer.start();
         holder.button1.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -50,9 +54,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     holder.button2.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            ss++;
             videoplayer=holder.videoView;
             videoplayer.setVideoURI(Uri.parse(VideoUrl.get(position)));
-            videoplayer.pause();
+            if(ss==1)videoplayer.pause();
+            else if(ss==2){
+                videoplayer.start();
+                ss=0;
+            }
         }
     });
     holder.button3.setOnClickListener(new View.OnClickListener() {
